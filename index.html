@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutBeco | Tradição no Ipiranga</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <header>
+        <div id="top-nav-bar">
+            <h1>OUTBECO</h1>
+            <nav id="menu-abas">
+                <button id="menu-toggle-btn" onclick="toggleSideMenu()">&#9776;</button> 
+            </nav>
+        </div>
+    </header>
+    
+    <div id="welcome-screen">
+        <h2>Bem-vindo ao OutBeco</h2>
+        <p>Pressione o menu acima para iniciar sua experiência.</p>
+    </div>
+
+    <main id="conteudo">
+        </main>
+    
+    <div id="side-menu">
+        <button class="close-btn" onclick="toggleSideMenu()">X</button>
+        <nav id="side-menu-nav">
+            <button class="aba-btn" data-aba="cardapio">Menu</button>
+            <button class="aba-btn" data-aba="pedidos">Carrinho</button>
+            <button class="aba-btn" data-aba="sobre">Sobre</button>
+            <button class="aba-btn" data-aba="avaliacoes">Avaliações</button>
+        </nav>
+    </div>
+
+    <div id="notificacao-container"></div>
+
+    <footer>
+        <p>&copy; 2025 OutBeco. Tradição e Excelência na Gastronomia.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
