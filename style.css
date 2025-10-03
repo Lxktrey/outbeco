@@ -1,36 +1,49 @@
-/* --- ESTILOS GERAIS COM VERDE OLIVA --- */
+/* --- ESTILOS GERAIS (FASANO STYLE) --- */
 body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: white; 
+    /* Fundo Creme Claro (Elegant Off-White) */
+    background-color: #F8F7F5; 
     color: #333;
-    padding-top: 120px; 
+    padding-top: 80px; 
     overflow-x: hidden; 
 }
 
-h1, h2, h3, h4 {
-    font-weight: 600;
-    color: #2c3e50; 
+h1 {
+    font-family: 'Playfair Display', serif; /* Fonte clássica para títulos */
+    font-size: 2.2em; 
+    letter-spacing: 5px;
+    font-weight: 400;
 }
 
-/* --- Estilos do Cabeçalho (Header) com COR SÓLIDA --- */
+h2, h3, h4 {
+    font-family: 'Playfair Display', serif; 
+    font-weight: 600;
+    color: #222; /* Preto elegante */
+}
+
+p {
+    line-height: 1.7;
+    color: #555;
+}
+
+/* --- Estilos do Cabeçalho (Header) --- */
 header {
-    background-color: #556B2F; /* VERDE OLIVA SÓLIDO */
+    background-color: #222; /* Preto Sólido */
     width: 100%;
-    height: 120px; 
+    height: 80px; 
     position: fixed; 
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #455a24; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 #top-nav-bar {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px 0; 
+    padding: 15px 20px; 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
@@ -38,319 +51,157 @@ header {
 }
 
 header h1 {
-    font-size: 1.8em; 
     margin: 0; 
-    letter-spacing: 3px;
-    color: white; 
+    color: #FFF; /* Branco Puro */
 }
 
-/* --- Botão de Menu Hamburger (Três Pontinhos) --- */
-#menu-abas {
-    margin: 0; 
-}
-
+/* --- Botão de Menu Hamburger (Minimalista) --- */
 #menu-toggle-btn {
     background-color: transparent; 
     color: white; 
-    border: 2px solid white;
-    padding: 10px 15px;
+    border: none; /* Remove bordas */
+    padding: 10px;
     cursor: pointer;
-    font-size: 1.5em; 
+    font-size: 1.8em; 
     font-weight: 400;
-    border-radius: 5px;
-    transition: background-color 0.2s, color 0.2s;
+    transition: opacity 0.2s;
 }
 
 #menu-toggle-btn:hover {
-    background-color: white;
-    color: #556B2F;
+    opacity: 0.7;
 }
 
-/* --- TELA DE BOAS-VINDAS --- */
-#welcome-screen {
-    /* IMAGEM FORNECIDA PELO USUÁRIO */
-    background-image: url('comidas-tipicas-brasileiras-no-analia.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: calc(100vh - 120px); 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    text-shadow: 0 0 10px rgba(0,0,0,0.8); 
-    position: relative;
-    z-index: 50; 
-}
-
-#welcome-screen h2 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: white; 
-}
-#welcome-screen p {
-    font-size: 1.2em;
-    color: white;
-}
-
-/* Esconde a tela de boas-vindas após a primeira navegação */
-body.welcome-hidden #welcome-screen {
-    display: none;
-}
-/* Mostra o conteúdo principal */
-body.welcome-hidden #conteudo {
-    display: block;
-}
-
-
-/* --- MENU LATERAL (SIDE MENU) --- */
+/* --- MENU LATERAL (FULL-SCREEN) --- */
 #side-menu {
     height: 100%; 
-    width: 0; /* Começa fechado */
+    width: 0; 
     position: fixed; 
     z-index: 2000; 
     top: 0;
     right: 0;
-    background-color: #F5F5DC; /* COR BEGE CLARO SOLICITADA */
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 150px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    /* Fundo Branco/Creme Claro */
+    background-color: #F8F7F5; 
+    overflow-y: auto; 
+    transition: 0.6s cubic-bezier(0.86, 0, 0.07, 1); /* Efeito suave e elegante */
+    padding-top: 0; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centraliza o conteúdo na tela */
+    text-align: center;
 }
 
-/* ESTADO ABERTO DO MENU CONTROLADO PELA CLASSE 'open' */
 #side-menu.open {
-    width: 300px; 
+    width: 100%; 
+}
+
+/* ESTILO DO BOTÃO X PARA FECHAR */
+#side-menu .close-btn {
+    position: absolute;
+    top: 30px; 
+    right: 30px; 
+    font-size: 3em; /* X maior e impactante */
+    color: #222; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 300;
+    z-index: 2001; 
 }
 
 #side-menu-nav {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
+    max-width: 400px;
 }
 
 #side-menu .aba-btn {
-    padding: 20px 8px;
-    font-size: 1.5em;
-    color: #556B2F; /* VERDE OLIVA para contraste */
+    padding: 25px 8px;
+    font-size: 1.8em; /* Fonte maior para as opções */
+    color: #222; 
     display: block;
     transition: 0.3s;
     border: none;
     background: transparent;
     text-align: center;
-    border-bottom: 1px solid rgba(85, 107, 47, 0.2);
-    margin-bottom: 10px;
+    border-bottom: 1px solid #CCC; /* Linha divisória sutil */
+    margin-bottom: 0;
     cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+#side-menu .aba-btn:first-child {
+    border-top: 1px solid #CCC;
 }
 
 #side-menu .aba-btn:hover, #side-menu .aba-btn.active {
-    color: white;
-    background-color: #556B2F; /* Fundo verde ao passar o mouse */
-}
-
-#side-menu .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 36px;
-    color: #556B2F; /* Verde para fechar */
-    background: none;
-    border: none;
-    cursor: pointer;
+    color: #8B4513; /* Dourado/Marrom Sutil */
+    background-color: transparent;
 }
 
 
 /* --- Estilos do Conteúdo Principal --- */
 #conteudo {
-    display: none; 
     padding: 50px 30px;
-    max-width: 1000px;
+    max-width: 900px; /* Um pouco mais estreito, mais elegante */
     margin: 0 auto; 
-    background-color: white;
-    position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
+    background-color: transparent; 
 }
 
-/* O restante dos estilos de Conteúdo, Cardápio, Footer e Notificações continuam válidos e foram mantidos. */
-
-/* Título de Seção */
-#conteudo h2 {
-    font-size: 2.2em;
-    text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* EFEITOS DE ANIMAÇÃO DINÂMICA (MANTIDO) */
-@keyframes fadeInZoom {
-    0% {
-        opacity: 0;
-        transform: scale(0.98) translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-.item-cardapio {
+/* --- Estilos da Apresentação de Cardápio (Catálogo Clean) --- */
+.apresentacao-item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
-    transition: background-color 0.3s;
-    opacity: 0; 
-    animation: fadeInZoom 0.5s forwards; 
+    flex-direction: column; 
+    /* Removendo fundo branco e sombras pesadas para um visual mais limpo */
+    background-color: transparent;
+    box-shadow: none; 
+    margin-bottom: 60px; /* Mais espaçamento entre os itens */
+    padding: 0;
+    border-bottom: 1px solid #DDD; /* Linha de separação entre pratos */
+    padding-bottom: 40px;
+}
+.apresentacao-item:last-child {
+    border-bottom: none;
 }
 
-/* Atraso para criar um efeito cascata (sequencial) */
-.item-cardapio:nth-child(1) { animation-delay: 0.1s; }
-.item-cardapio:nth-child(2) { animation-delay: 0.2s; }
-.item-cardapio:nth-child(3) { animation-delay: 0.3s; }
-.item-cardapio:nth-child(4) { animation-delay: 0.4s; }
-.item-cardapio:nth-child(5) { animation-delay: 0.5s; }
-.item-cardapio:nth-child(6) { animation-delay: 0.6s; }
-.item-cardapio:nth-child(7) { animation-delay: 0.7s; }
-.item-cardapio:nth-child(8) { animation-delay: 0.8s; }
-
-
-/* --- Estilos do Cardápio --- */
-.categoria-cardapio h3 {
-    font-size: 1.6em;
-    color: #556B2F; 
-    border-bottom: 2px solid #556B2F;
-    padding-bottom: 5px;
-    margin-top: 40px;
-    margin-bottom: 15px;
-}
-
-
-.item-acoes button {
-    background-color: #556B2F; 
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: background-color 0.2s;
-    font-weight: 600;
-}
-
-.item-acoes button:hover {
-    background-color: #455a24; 
-}
-
-/* --- Estilos para a Aba SOBRE --- */
-.historia-container {
-    padding: 20px 0;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-.historia-paragrafo {
-    line-height: 1.8;
-}
-.sobre-h3 {
-    margin-top: 50px;
-}
-
-.horario-range {
-    font-size: 1.5em;
-    color: #556B2F; 
-    font-weight: 700;
-    margin-top: 5px;
-}
-.local-info {
-    margin-top: 30px;
-    font-size: 1.1em;
-    color: #333;
-}
-
-/* --- Estilos do Carrinho de Pedidos --- */
-
-.carrinho-vazio-msg-style {
-    display: none; 
-    text-align: center; 
-    padding: 20px; 
-    color: #777;
-}
-
-.resumo-pedido-style {
-    margin-top: 20px; 
-    border-top: 1px solid #ccc; 
-    padding-top: 10px; 
-    text-align: right;
-}
-
-.btn-quantidade {
-    color: #556B2F; 
-    transition: background-color 0.2s, transform 0.1s; 
-}
-
-.btn-quantidade:active {
-    transform: scale(0.95); 
-}
-
-#finalizar-btn {
-    background-color: #556B2F; 
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 700;
+.apresentacao-item img {
     width: 100%;
-    margin-top: 20px;
-    transition: background-color 0.2s;
+    max-width: 600px; 
+    height: auto;
+    border-radius: 0; /* Sem bordas arredondadas */
+    margin-bottom: 20px;
+    align-self: center; 
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil */
 }
 
-#finalizar-btn:hover:not(:disabled) {
-    background-color: #455a24;
+.apresentacao-item h3 {
+    color: #222;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    font-size: 1.5em;
+    border-bottom: none;
 }
 
-/* --- Estilos para Notificações (Toast) --- */
-#notificacao-container {
-    position: fixed;
-    top: 130px; 
-    right: 20px;
-    z-index: 2000;
-    max-width: 90%; 
+.apresentacao-item p {
+    font-size: 1em;
+    padding-left: 0;
+    min-height: 3em; 
 }
 
-.toast-notificacao {
-    background-color: #556B2F; 
-    color: white;
-    padding: 15px 20px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out; 
+/* Esconde o botão de adicionar ao carrinho na página inicial de Apresentação */
+.apresentacao-item .add-to-cart-btn {
+    display: none;
 }
 
-/* --- Aba Avaliações --- */
-.imprensa-contato {
-    margin-top: 25px; 
-    font-style: italic; 
-    color: #777; 
-    text-align: center;
-}
-
-/* --- Footer --- */
+/* --- Footer (Também com novo estilo) --- */
 footer {
     text-align: center;
-    padding: 15px;
-    background-color: #f0f2f5; 
+    padding: 20px;
+    background-color: #EAEAEA; 
     color: #777;
-    margin-top: 30px;
+    margin-top: 50px;
     font-size: 0.9em;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #DDD;
 }
